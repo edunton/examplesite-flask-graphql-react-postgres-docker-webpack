@@ -1,3 +1,7 @@
+'''
+This contains Database logic
+'''
+
 from datetime import datetime
 
 from sqlalchemy import create_engine
@@ -11,6 +15,9 @@ print('Database at ' + SQLALCHEMY_DATABASE_URI)
 
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
 
+'''
+This "Session" export is the most important to bind everything together
+'''
 Session = sessionmaker(bind=engine)
 
 

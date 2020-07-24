@@ -1,12 +1,8 @@
-# enum Continent {
-#   ASIA
-#   EUROPE
-#   NORTH_AMERICA
-#   AFRICA
-#   SOUTH_AMERICA
-#   OCEANIA
-#   ANTARCTICA
-# }
+##########################
+# Definitions for the GraphQL interface
+##########################
+
+# STARTOF Based on Data Model
 
 type Language {
   language: String!
@@ -39,6 +35,10 @@ type Country {
   languages: [Language]
 }
 
+# ENDOF Based on Data Model
+
+# STARTOF Query interface
+
 input CountryFilterInput {
   limit: Int!
   offset: Int!
@@ -54,11 +54,9 @@ type Query {
   country_cities(code:String!): [City]
 }
 
-input LanguageInput {
-  language: String!
-  percentage: Float!
-  isofficial: Boolean!
-}
+# ENDOF Query interface
+
+# STARTOF Mutation interface
 
 input CityInput {
   countrycode:String!
@@ -70,3 +68,5 @@ input CityInput {
 type Mutation {
   new_city(city:CityInput):Boolean
 }
+
+# ENDOF Mutation interface

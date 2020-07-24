@@ -1,7 +1,9 @@
 import * as React from 'react'
 
+//Define all Continents
 export type ContinentType = 'Asia'|'North America'|'Africa'|'Oceania'|'Antarctica'|'South America'|'Europe'
 
+//Possible state types
 export type MainStateType = {
     level: 'continents'
 } | {
@@ -17,6 +19,7 @@ export type MainStateType = {
     countrycode: string
 }
 
+//context singleton pattern
 type MainContextType = [MainStateType,(state:MainStateType)=>void]
 const mainContext = React.createContext<MainContextType>(null as any)
 

@@ -1,3 +1,7 @@
+/**
+ * Display Country Details
+ */
+
 import * as React from "react"
 import NumberFormat from 'react-number-format';
 import * as qry from "../gqlHooks/queries"
@@ -13,14 +17,17 @@ export const CountryDetails : React.FC<{code:string, continent:ContinentType}> =
     },[code])
 
     if(error){
+        //Issue connecting to server
         return <p>{error.message}</p>
     }
 
     if(loading){
+        //Waiting on data from server
         return <h2>Loading...</h2>
     }
 
     if(!data || !data.country){
+        //bad ID, should not ever get here
         return <p>No country available</p>
     }
 

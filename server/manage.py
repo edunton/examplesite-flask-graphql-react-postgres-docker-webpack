@@ -1,3 +1,8 @@
+'''
+The database is managed by a single init.sql script for now
+Expand this file to do proper migrations
+'''
+
 import os
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand

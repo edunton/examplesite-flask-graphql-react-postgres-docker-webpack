@@ -1,3 +1,6 @@
+/**
+ * New City Form
+ */
 import * as React from "react"
 import * as mut from "../gqlHooks/mutations"
 import NumberFormat from 'react-number-format'
@@ -41,7 +44,7 @@ export const NewCityForm : React.FC<{countrycode:string, continent:ContinentType
         })
     }
     const isDisabled = !name || !district || !population
-    return <>
+    return <form method="POST" onSubmit={e=>{e.preventDefault();handleSubmit()}}>
         <div className="row">
             <div className="col sm-12">
                 <table>
@@ -67,8 +70,8 @@ export const NewCityForm : React.FC<{countrycode:string, continent:ContinentType
         </div>
         <div className="row">
             <div className="col">
-                <button className="btn-secondary" disabled={isDisabled} onClick={()=>handleSubmit()}>Submit</button>
+                <button className="btn-secondary" disabled={isDisabled} type="submit">Submit</button>
             </div>
         </div>
-    </>
+    </form>
 }

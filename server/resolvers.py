@@ -1,3 +1,7 @@
+'''
+This is the meat of the logic to resolve the GraphQL queries
+'''
+
 from ariadne import QueryType, MutationType
 from uuid import uuid4
 from db import Session

@@ -1,3 +1,7 @@
+/**
+ * List out all continents
+ */
+
 import * as React from "react";
 import {ContinentType,useMainContext} from "../context/MainContext"
 

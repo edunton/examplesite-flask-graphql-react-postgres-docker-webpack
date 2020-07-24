@@ -1,3 +1,7 @@
+'''
+SQL to Python models in SQL Alchemy based on the init.sql script
+'''
+
 from sqlalchemy import Boolean, CHAR, CheckConstraint, Column, Float, ForeignKey, Integer, Numeric, SmallInteger, Text
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base

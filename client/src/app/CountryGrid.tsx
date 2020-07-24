@@ -1,3 +1,7 @@
+/**
+ * Grid of all countries in a continent, paged at 15 a time
+ */
+
 import * as React from "react";
 import * as qry from "../gqlHooks/queries"
 import {CountryGridPager} from "./CountryGridPager"

@@ -1,3 +1,7 @@
+/**
+ * Pager component since Paper.css did not come with one
+ */
+
 import * as React from "react";
 
 export const CountryGridPager : React.FC<{page:number,count:number,pageSize:number,onNext:()=>void, onPrev:()=>void}> = ({page,count,onNext,onPrev,pageSize})=>{

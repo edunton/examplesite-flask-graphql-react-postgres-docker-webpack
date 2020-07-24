@@ -1,3 +1,7 @@
+'''
+This is the main kickoff file for the server program
+'''
+
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from ariadne import graphql_sync, make_executable_schema, gql, load_schema_from_path
@@ -24,17 +28,18 @@ db = SQLAlchemy()
 
 #cors = CORS(app, resources={r"/graphql": {"origins": "*"}})
 
+#serves index.html and other static files
 @app.route('/')
 def root():
     return send_from_directory(static_dir, "index.html")
 
-
+#serves GraphQL playground for development
 @app.route("/graphql", methods=["GET"])
 def graphql_playgroud():
     """Serve GraphiQL playground"""
     return PLAYGROUND_HTML, 200
 
-
+#main endpoint for GraphQL
 @app.route("/graphql", methods=["POST"])
 def graphql_server():
     data = request.get_json()
@@ -48,6 +53,6 @@ def graphql_server():
     status_code = 200 if success else 400
     return jsonify(result), status_code
 
-
+#Start if not using flask utility
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)

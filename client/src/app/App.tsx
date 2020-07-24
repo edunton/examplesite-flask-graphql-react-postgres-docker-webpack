@@ -1,3 +1,7 @@
+/**
+ * Main App logic, provides routing throughout app
+ */
+
 import * as React from "react";
 import {ContinentSelection} from "./ContinentSelection"
 import {CountryGrid} from "./CountryGrid"
@@ -18,6 +22,7 @@ export const App : React.FC = ()=>{
     },[mainState.level])
 
     return (<>
+        {/* Top nav bar */}
         {
             <div className="row border">
                 {mainState.level === 'continents' && 
@@ -51,6 +56,7 @@ export const App : React.FC = ()=>{
             </div>
         }
         <br/>
+        {/* Possible pages */}
         {mainState.level === 'continents' && <ContinentSelection />}
         {mainState.level === 'countries' && <CountryGrid search={search} continent={mainState.continent} />}
         {mainState.level === 'country' && <CountryDetails code={mainState.code} continent={mainState.continent} />}
