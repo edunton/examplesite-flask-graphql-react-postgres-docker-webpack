@@ -51,6 +51,8 @@ pip install -r requirements.txt
 python app.py
 ```
 
+To develop the UI with automatic rebuilds use `npm start`. Webpack will kindly rebuild only the differences for you.
+
 To initial the database manually run this into the Postgres Terminal
 ```
 \i [/path/to/root]/db/init.sql
