@@ -1,0 +1,72 @@
+# enum Continent {
+#   ASIA
+#   EUROPE
+#   NORTH_AMERICA
+#   AFRICA
+#   SOUTH_AMERICA
+#   OCEANIA
+#   ANTARCTICA
+# }
+
+type Language {
+  language: String!
+  percentage: Float!
+  isofficial: Boolean!
+}
+
+type City {
+  name: String!
+  country: Country!
+  district: String!
+  population: Int!
+}
+
+type Country {
+  code: String!
+  name: String!
+  continent: String!
+  region: String!
+  surfacearea: Float!
+  indepyear: Int
+  population: Int
+  lifeexpectancy: Float
+  gnp: Float
+  gnpold: Float
+  localname: String!
+  governmentform: String!
+  headofstate: String!
+  capitalcity: City
+  languages: [Language]
+}
+
+input CountryFilterInput {
+  limit: Int!
+  offset: Int!
+  continent: String!
+
+  code: String
+  name: String
+}
+
+type Query {
+  countries(filter:CountryFilterInput): [Country]
+  country_count(filter:CountryFilterInput): Int!
+  country_cities(code:String!): [City]
+}
+
+input LanguageInput {
+  language: String!
+  percentage: Float!
+  isofficial: Boolean!
+}
+
+input CityInput {
+  countrycode:String!
+  name: String!
+  district: String!
+  population: Int!
+}
+
+type Mutation {
+  new_city(city:CityInput):Boolean
+}

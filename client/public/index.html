@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /> -->
+        <meta content="width=device-width, height=device-height, user-scalable=no" name="viewport" />
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+        <title>Eric's Awesome Country Explorer</title>
+    </head>
+    <body>
+        <!-- 
+            This UNSUPPORTED RESOLUTION section is 
+            boilerplate code I usually use to make 
+            sure IE and outdated versions of browsers 
+            get a message to use a different browser
+        -->
+       <!--UNSUPPORTED RESOLUTION-->
+       <style>
+           :root {
+               --css-test: none !important;
+           }
+
+           #not-supported-warning {
+               display: var(--css-test); /*no var will default to visable*/
+           }
+
+           .unsupported {
+               background-color: #530000;
+               color: white;
+               padding: 10px 10px 10px 10px;
+           }
+
+           .unsupported a {
+               color: rgb(181, 205, 233);
+           }
+       </style>
+       <h2 id="not-supported-warning" class="unsupported">
+           !!! This browser is not supported. Please choose one of these browsers to continue: 
+           <a href="http://outdatedbrowser.com/">outdatedbrowser.com</a>.
+       </h2>
+       <script>
+           !function(){
+               try {
+                   var msg = document.getElementById('not-supported-warning');
+                   var computedStyle = typeof getComputedStyle !== 'function' ? null : getComputedStyle(msg, null);
+                   var validBrowser = !!computedStyle && !!computedStyle.display && computedStyle.display === 'none';
+
+                   //make sure css vars work in this browser
+                   if(!validBrowser){
+                       window.__custom_unsupported = 'UNSUPPORTED';
+                   }
+                   //some older versions of Edge support css vars but have missing functions
+                   //not supporting that with polyfils
+                   else if(typeof URLSearchParams !== 'function'){
+                       window.__custom_unsupported = 'UNSUPPORTED';
+                       document.documentElement.style.setProperty('--css-test', 'block');
+                   }
+               }
+               catch (e) {
+                   //if browser cannot even support above, definitely do not support it
+                   window.__custom_unsupported = 'UNSUPPORTED';
+               }
+           }();
+       </script>
+       <!-- Obviously if JS is off, tell them to turn it on -->
+       <noscript class="unsupported">
+           For full functionality of this site it is necessary to enable JavaScript.
+           Here are the <a href="https://www.enable-javascript.com/">
+           instructions how to enable JavaScript in your web browser</a>.
+       </noscript>
+       <!--END UNSUPPORTED RESOLUTION-->
+
+       <!-- root of the react app -->
+       <div id="root-app"></div>
+   </body>
+</html>

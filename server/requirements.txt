@@ -1,0 +1,15 @@
+ariadne==0.11.0
+click==7.1.2
+Flask==1.1.2
+graphql-core==3.0.5
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+starlette==0.13.4
+typing-extensions==3.7.4.2
+Werkzeug==1.0.1
+flask-cors==2.0.1
+psycopg2==2.8.4
+Flask-SQLAlchemy===2.4.1
+Flask-Migrate==2.5.2
+Flask-Script==2.0.6
